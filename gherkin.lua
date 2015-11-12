@@ -31,8 +31,9 @@ local keyword = token(l.KEYWORD, word_match{
 })
 
 -- Identifiers.
-local identifier = token(l.KEYWORD, P('Scenario Outline') +
-                         word_match{'Feature', 'Background', 'Scenario', 'Scenarios', 'Examples'})
+local identifier = token(l.KEYWORD, P('Scenario Outline') + word_match{
+  'Feature', 'Background', 'Scenario', 'Scenarios', 'Examples'
+})
 
 -- Examples.
 local example = token('example', '|' * l.nonnewline^0)
@@ -55,7 +56,7 @@ M._rules = {
 M._tokenstyles = {
   tag = l.STYLE_LABEL,
   placeholder = l.STYLE_NUMBER,
-  example = l.STYLE_NUMBER,
+  example = l.STYLE_NUMBER
 }
 
 M._FOLDBYINDENTATION = true
